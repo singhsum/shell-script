@@ -1,0 +1,19 @@
+When you use this command with no arguments the user configuration file for the current user will be generated within the current OS user's home folder.
+
+
+wls:/testdomain/serverConfig>storeUserConfig()
+
+
+You can also specify the location and name for the key file and the userconfig file if you want them to be created elsewhere.
+
+wls:/testdomain/serverConfig>storeUserConfig('/usr/home/user1/configfile.secure', '/usr/home/user1/keyfile.secure')
+
+
+If the files are stored with the default name (osusername-WebLogicConfig.properties & osusername-WebLogicKey.properties) you can simply connect without specifying the username and password in the connect() command.
+
+wls:/offline> connect(url='t3://host:port')
+
+
+If the files are stored in a different location or with a different name, then they can be passed as an argument to the connect() command.
+
+wls:/offline> connect(userConfigFile='/usr/home/user1/configfile.secure', userKeyFile='/usr/home/user1/keyfile.secure', url='t3://host:port')
